@@ -5,9 +5,6 @@
 net session >nul 2>&1
 if %errorLevel% == 0 (
     echo Script is running with administrator privileges
-    echo This Script is broken, it will not work
-    timeout /t 5
-    exit
 ) else (
     echo Script is not running with administrator privileges
     echo This Script is broken, it will not work
@@ -16,15 +13,21 @@ if %errorLevel% == 0 (
 )
 
 
-set url8=https://www.fosshub.com/Bulk-Crap-Uninstaller.html?dwl=BCUninstaller_5.5_setup.exe
+set url8=https://github.com/Klocman/Bulk-Crap-Uninstaller/releases/download/v5.5/BCUninstaller_5.5_portable.zip
 
-if exist "C:\Temp\BCU.exe" (
+if exist "C:\Temp\BCU.zip" (
     echo BCU already downloaded
 ) else (
     echo Downloading BCU...
-    powershell -command "Invoke-WebRequest -Uri '%url8%' -OutFile 'C:\Temp\BCU.exe'"
+    powershell -command "Invoke-WebRequest -Uri '%url8%' -OutFile 'C:\Temp\BCU.zip'"
     echo Finished Downloading...
 )
 
+
+
+set ZIPFILE="C:\Temp\BCU.zip"
+set DESTINATION=""
+
+
 echo Installing BCU...
-C:\Temp\BCU.exe /S /D=C:\Temp\BCU
+powershell -command Expand-Archive -LiteralPath "C:\Temp\BCU.zip" -DestinationPath "C:\Temp\BCU" -Force
