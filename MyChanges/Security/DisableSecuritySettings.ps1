@@ -1,4 +1,4 @@
-Set Execution-Policy Unrestricted
+Set-Execution-Policy Bypass
 
 Write-Output "Disabling Defender..."
 Start-Sleep -Seconds 2
