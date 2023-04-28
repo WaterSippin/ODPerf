@@ -1,0 +1,1 @@
+C:\Temp\TCPoptimizer.exe /auto /quiet /silent /silentinstall /runasadmin /a /o /s
