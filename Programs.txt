@@ -1,0 +1,27 @@
+C++ redist
+DX Installer
+DDU
+MSI Afterburner
+Rivatuner
+GPU Z
+OCCT
+MemTest64
+HWInfo
+TM5 Memtest
+VS Code
+Search
+BitWarden
+Steam
+Epic
+Discord
+VLC
+F3D
+7Zip
+BleachBit
+Dolby Access
+ISLC
+LilRegCleaner
+OBS
+RegCool
+Joy2Key
+ChatGPT
