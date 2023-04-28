@@ -1,0 +1,8 @@
+========= TestMem5 Log File =========
+Customize: Extreme1 @anta777
+Start testing at 0:08, 560Mb x20
+
+
+========= TestMem5 Log File =========
+Customize: Extreme1 @anta777
+Start testing at 0:08, 576Mb x20
