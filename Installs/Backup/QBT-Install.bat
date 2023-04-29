@@ -1,9 +1,5 @@
 @echo off
 
-echo Broken
-Timeout /t 5
-exit
-
 net session >nul 2>&1
 if %errorLevel% == 0 (
     echo Script is running with administrator privileges
@@ -24,4 +20,4 @@ if exist "C:\Temp\QBT.exe" (
 )
 
 echo Installing QBT...
-C:\Temp\QBT.exe /VERYSILENT /INSTALLDIR=C:\Temp\QBT
+C:\Temp\QBT.exe /SILENT /INSTALLDIR=C:\Temp\QBT

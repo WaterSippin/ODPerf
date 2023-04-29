@@ -1,13 +1,13 @@
 WorkingDir := A_WorkingDir
 
 RegRead, IterationData, HKEY_CURRENT_USER, Software\ODPerf, Iteration
-ButtonTxt := "Initial Perf " . IterationData
+ButtonTxt := "Click Me! " . IterationData
 
 ; Add the button to the GUI with the concatenated text
 Gui, Add, Button, x50 y50 w100 h30 gButtonClicked, %ButtonTxt%
 Gui, Add, Button, x50 y100 w100 h30 gButtonClicked2, Reset Reg
-Gui, Add, Button, x50 y150 w100 h30 gDownloadPerms, Perms
-Gui, Add, Button, x150 y50 w100 h30 gInstallGaming, Install Perms
+Gui, Add, Button, x50 y150 w100 h30 gDownloadPerms, Download Perms
+Gui, Add, Button, x50 y200 w100 h30 gInstallPerms, Install Perms
 Gui, Show, w300 h300, My Window
 Return
 
@@ -30,6 +30,10 @@ if (IterationData = 1)
 {
     RunWait, *RunAs regedit.exe /s "%WorkingDir%\MyChanges\Security\FuckSecurity.reg"
     RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DownloadOptimizer.ps1"
+    RunWait, "%WorkingDir%\MyChanges\QOL\RunAllPS.bat"
+    RunWait, "%WorkingDir%\MyChanges\Performance\RunAllPS.bat"
+    RunWait, *RunAs powershell.exe "%WorkingDir%\Installs\InstallChoco.ps1"
+    RunWait, *RunAs powershell.exe "%WorkingDir%\Installs\Initial-Install.ps1"
     RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DisableSecuritySettings.ps1"
     Shutdown, 2
 }
@@ -39,8 +43,6 @@ if (IterationData = 2)
     RunWait, "%WorkingDir%\MyChanges\QOL\RunAllPS.bat"
     RunWait, "%WorkingDir%\MyChanges\Performance\RunAllPS.bat"
     RunWait, *RunAs powershell.exe "%WorkingDir%\MyChanges\Security\RunOptimizers.ps1"
-    RunWait, *RunAs powershell.exe "%WorkingDir%\Installs\InstallChoco.ps1"
-    RunWait, *RunAs powershell.exe "%WorkingDir%\Installs\Initial-Install.ps1"
     Shutdown, 2
 
     RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DisableSecuritySettings.ps1"
@@ -57,10 +59,10 @@ RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\ODPerf, Iteration, 0
 Return
 
 DownloadPerms:
-RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\Installs\Perms.ps1"
+RunWait, "%WorkingDir%\Installs\DownloadPerms.bat"
 Return
 
-InstallGaming:
-RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\Installs\Gaming.ps1"
+InstallPerms:
+RunWait, *RunAs "%WorkingDir%\Installs\InstallPerms.bat"
 return
 

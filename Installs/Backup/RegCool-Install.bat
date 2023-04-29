@@ -2,9 +2,7 @@
 
 @echo off
 
-echo Broken
-/ Timeout /t 5
-exit
+
 
 net session >nul 2>&1
 if %errorLevel% == 0 (
@@ -26,4 +24,4 @@ if exist "C:\Temp\RegCool.exe" (
 )
 
 echo Installing RegCool...
-C:\Temp\RegCool.exe /VERYSILENT /S /Q /D=C:\Temp\RegCool
+C:\Temp\RegCool.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART

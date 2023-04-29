@@ -21,4 +21,5 @@ if exist "C:\Temp\BattleNet.exe" (
 )
 
 echo Installing BattleNet...
-C:\Temp\BattleNet.exe /S /D=C:\Temp\BattleNet
+copy %~dp0\Game\OW\Battlenet\BattleNetInstall.ini C:\Temp\BattleNetInstall.ini
+C:\Temp\BattleNet.exe /VERYSILENT /S /LOADINF=BattleNetInstall.ini
