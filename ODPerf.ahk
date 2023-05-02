@@ -30,26 +30,22 @@ if (IterationData = 1)
 {
     RunWait, *RunAs regedit.exe /s "%WorkingDir%\MyChanges\Security\FuckSecurity.reg"
     RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DownloadOptimizer.ps1"
-    RunWait, "%WorkingDir%\MyChanges\QOL\RunAllPS.bat"
-    RunWait, "%WorkingDir%\MyChanges\Performance\RunAllPS.bat"
     RunWait, *RunAs powershell.exe "%WorkingDir%\Installs\InstallChoco.ps1"
-    RunWait, *RunAs powershell.exe "%WorkingDir%\Installs\Initial-Install.ps1"
-    RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DisableSecuritySettings.ps1"
+    ;RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DisableSecuritySettings.ps1"
     Shutdown, 2
 }
 if (IterationData = 2)
 {
     RunWait, *RunAs regedit.exe /s "%WorkingDir%\MyChanges\Security\FuckSecurity.reg"
-    RunWait, "%WorkingDir%\MyChanges\QOL\RunAllPS.bat"
-    RunWait, "%WorkingDir%\MyChanges\Performance\RunAllPS.bat"
+    RunWait, "%WorkingDir%\MyChanges\AllChanges\RunAllPS.bat"
+    RunWait, *RunAs powershell.exe "%WorkingDir%\Installs\Initial-Install.ps1"
     RunWait, *RunAs powershell.exe "%WorkingDir%\MyChanges\Security\RunOptimizers.ps1"
     Shutdown, 2
-
-    RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DisableSecuritySettings.ps1"
+    ;RunWait, *RunAs powershell.exe -ExecutionPolicy Bypass -File "%WorkingDir%\MyChanges\Security\DisableSecuritySettings.ps1"
 }
 if(IterationData = 3)
 {
-
+ ButtonTxt := "Disabled"
 }
 
 Return

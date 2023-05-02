@@ -2,7 +2,7 @@
 echo Running PowerShell scripts...
 echo %cd%
 
-set "SCRIPTS_FOLDER=%CD%\MyChanges\Performance"
+set "SCRIPTS_FOLDER=%CD%\MyChanges\AllChanges"
 
 for %%i in ("%SCRIPTS_FOLDER%\*.ps1") do (
     echo Running script: %%i
